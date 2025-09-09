@@ -1,0 +1,98 @@
+:root{
+  --bg:#0f1724;
+  --card:#0b1220aa;
+  --accent1: linear-gradient(135deg,#6ee7b7 0%,#60a5fa 50%,#a78bfa 100%);
+  --muted: rgba(255,255,255,0.65);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(99,102,241,0.07), transparent 8%),
+              radial-gradient(900px 400px at 90% 90%, rgba(16,185,129,0.04), transparent 6%),
+              var(--bg);
+  color:#e6eef8;
+  line-height:1.45;
+}
+
+/* Navbar */
+.nav{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 34px;position:sticky;top:0;
+  backdrop-filter: blur(8px);
+  background: rgba(7,10,16,0.35);
+  z-index:100;
+}
+.logo{
+  width:46px;height:46px;border-radius:10px;
+  background: linear-gradient(135deg,#06b6d4,#7c3aed);
+  display:flex;align-items:center;justify-content:center;
+  font-family: "Playfair Display", serif;
+  font-size:18px;
+}
+.nav-links{display:flex;gap:14px}
+.nav-links a{color:var(--muted);text-decoration:none;font-weight:600;font-size:14px;padding:8px 12px;border-radius:8px;}
+.nav-links a.cta{background:linear-gradient(90deg,#7c3aed,#60a5fa);color:white}
+.nav-links a:hover{transform:translateY(-2px)}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1fr 520px;gap:32px;align-items:center;padding:68px 34px;max-width:1200px;margin:0 auto}
+.hero-left h1{
+  font-family: "Playfair Display", serif;
+  font-size:48px;
+  margin:0 0 12px;
+  background:var(--accent1);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent
+}
+.lead{color:var(--muted);max-width:720px;margin-bottom:22px;font-size:17px}
+.btn-row{display:flex;gap:12px}
+.btn{padding:12px 18px;border-radius:12px;border:0;font-weight:700;cursor:pointer}
+.btn.primary{background:linear-gradient(90deg,#06b6d4,#7c3aed);color:#031025}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+.hero-3d{position:relative;min-height:360px;border-radius:18px;overflow:hidden;box-shadow:0 30px 60px rgba(2,6,23,0.6)}
+#three-canvas{width:100%;height:100%;display:block}
+.canvas-label{position:absolute;left:18px;bottom:18px;background:rgba(0,0,0,0.25);padding:10px;border-radius:10px;font-size:13px}
+
+/* Features grid */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:36px auto;max-width:1200px;padding:0 34px}
+.card{background:rgba(255,255,255,0.02);padding:18px;border-radius:16px;transition:.3s}
+.card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(2,6,23,0.6)}
+.card h3{margin:0 0 8px;font-size:18px}
+.card p{margin:0;color:var(--muted);font-size:14px}
+
+/* Courses */
+.courses-section{max-width:1200px;margin:36px auto;padding:0 34px}
+.courses-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.course{display:flex;gap:14px;padding:18px;border-radius:14px;background:var(--card)}
+.course img{width:120px;height:80px;object-fit:cover;border-radius:10px}
+.course h4{margin:0 0 6px}
+.course p{margin:0;color:var(--muted);font-size:14px}
+
+/* Resources */
+.resources{max-width:1200px;margin:18px auto;padding:0 34px}
+.resource-grid{display:flex;gap:12px;flex-wrap:wrap}
+.resource{padding:12px;border-radius:12px;background:var(--card);min-width:220px}
+.resource p{color:var(--muted);font-size:13px;margin:8px 0 0}
+
+/* Footer */
+footer{margin-top:48px;padding:28px 34px;color:var(--muted);display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin-left:auto;margin-right:auto}
+.small{font-size:13px}
+
+/* Utility */
+.fancy-underline{position:relative;display:inline-block;padding-bottom:6px}
+.fancy-underline::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;border-radius:6px;background:linear-gradient(90deg,#6ee7b7,#60a5fa,#a78bfa);opacity:0.15;transform:skewX(-12deg)}
+.pill{font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03)}
+
+/* Responsive */
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr;padding:36px 20px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .courses-grid{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .grid{grid-template-columns:1fr}
+  .hero-left h1{font-size:32px}
+}
